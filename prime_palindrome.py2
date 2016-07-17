@@ -1,0 +1,25 @@
+#! /usr/bin/python
+
+def is_prime(test_num):
+    halfway = int(test_num / 2)
+    if (test_num in [1,2,3,5]):
+        return True
+    elif (test_num == 4):
+        return False
+    else:
+        for i in range(halfway,1,-1):
+            if (test_num % i == 0):
+                return False
+        return True
+
+def is_palindrome(test_num):
+    test_string = str(test_num)
+    if (test_string[0] == test_string[-1]):
+        return True
+    else:
+        return False
+
+for i in range(1000,0,-1):
+    if (is_prime(i) and is_palindrome(i)):
+        print(i)
+        break

@@ -1,0 +1,14 @@
+#! /usr/bin/python
+
+import sys
+
+with open(sys.argv[1], 'r') as f:
+    of = []
+    for line in f:
+        line = line.strip()
+        sum = 0
+        for digit in line:
+            sum += int(digit)
+        of.append(sum)
+    for o in of:
+        print(o)
