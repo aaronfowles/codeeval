@@ -6,9 +6,12 @@ with open(sys.argv[1], 'r') as f:
     of = []
     for line in f:
         line = line.strip()
-        sum = 0
-        for digit in line:
-            sum += int(digit)
-        of.append(sum)
+        n = int(line)
+        seq = []
+        seq.append(0)
+        seq.append(1)
+        for i in range(2,n+1):
+            seq.append(seq[i-1] + seq[i-2])
+        of.append(seq[n])
     for o in of:
         print(o)

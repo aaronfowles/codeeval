@@ -1,0 +1,22 @@
+#! /usr/bin/python
+
+import sys
+
+with open(sys.argv[1],'r') as f:
+    of = []
+    for line in f:
+        line = line.strip()
+        elements = line.split(';')
+        set_one = elements[0].split(',')
+        set_two = elements[1].split(',')
+        intersect_set = []
+        for i in range(0,len(set_one)):
+            if (set_one[i] in set_two):
+                intersect_set.append(set_one[i])
+        unique_elements = list(intersect_set)
+        for e in unique_elements:
+            if e not in unique_elements:
+                unique_elements.append(str(e))
+        of.append(','.join(unique_elements))
+    for o in of:
+        print(o)
